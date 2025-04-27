@@ -14,11 +14,8 @@ const winConditions = [
 ]
 
 /*---------------------------- Variables (state) ----------------------------*/
-let isXTurn = false
-let winner = false
-let tie = false
+let isXTurn = winner = tie = false
 let squareIdx
-
 let board = [
     '', '', '',
     '', '', '',
