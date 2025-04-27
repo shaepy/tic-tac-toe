@@ -9,7 +9,7 @@ body {
     /* Use a system font, if none are available use an available sans-sarif */
     font-family: system-ui, sans-serif;
     margin: 0;
-    letter-spacing: .05rem;
+    letter-spacing: .06rem;
   }
 
   h1 {
@@ -39,7 +39,7 @@ body {
   button {
     font-family: system-ui, sans-serif;
     padding: 6px 10px;
-    letter-spacing: .02rem;
+    letter-spacing: .04rem;
     border-radius: 3px;
     background-color: rgb(0, 0, 0);
     border: 0px;
