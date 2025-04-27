@@ -60,11 +60,10 @@ function markPiece() {
     }
 }
 
-// This checks the arr (array) with a targetArr to see if all targetArr values are included in arr
-const checkWins = (arr, targetArr) => targetArr.every(v => arr.includes(v))
-
 // This checks to see if someone has won and saves the winner to winner
 function checkWinner() {
+    // This checks the arr (array) with a targetArr to see if all targetArr values are included in arr
+    const checkWins = (arr, targetArr) => targetArr.every(v => arr.includes(v))
     let playerXWins = []
     let playerOWins = []
     winConditions.forEach(winArray => {
