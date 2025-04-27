@@ -58,13 +58,13 @@ function markPiece() {
     if (isXTurn) {
         board[squareIdx] = 'X'
         playerX.push(Number(squareIdx))
-        displaySquare.textContent = '❌'
-        message.textContent = `Your turn, Player ⭕.`
+        displaySquare.textContent = '🪼'
+        message.textContent = `Your turn, Player 🐙`
     } else {
         board[squareIdx] = 'O'
         playerO.push(Number(squareIdx))
-        displaySquare.textContent = '⭕'
-        message.textContent = 'Your turn, Player ❌.'
+        displaySquare.textContent = '🐙'
+        message.textContent = 'Your turn, Player 🪼'
     }
 }
 
@@ -81,8 +81,8 @@ function checkWinner() {
         playerOWins.push(didPlayerOWin)
     })
 
-    if (playerXWins.includes(true)) winner = 'Player ❌'
-    else if (playerOWins.includes(true)) winner = 'Player ⭕'
+    if (playerXWins.includes(true)) winner = 'Player 🪼'
+    else if (playerOWins.includes(true)) winner = 'Player 🐙'
 }
 
 function checkTie() {
@@ -95,7 +95,7 @@ function resultMessage() {
 }
 
 function resetGame() {
-    message.textContent = ''
+    message.textContent = 'Tap a square to start'
     isXTurn = false
     winner = false
     tie = false

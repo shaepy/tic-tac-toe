@@ -39,20 +39,21 @@ body {
   button {
     font-family: system-ui, sans-serif;
     padding: 6px 10px;
-    letter-spacing: .06rem;
+    letter-spacing: .02rem;
     border-radius: 3px;
-    background-color: rgb(184, 28, 28);
+    background-color: rgb(0, 0, 0);
     border: 0px;
     color: rgb(255, 255, 255);
     cursor: pointer;
   }
 
   button:hover {
-    background-color: rgb(166, 23, 23);
-    color: rgb(228, 228, 228);
+    background-color: rgb(186, 35, 35);
+    color: rgb(241, 241, 241);
     cursor: pointer;
   }
 
   #message {
     padding: 2% 0px;
+    font-size: 1.3rem;
   }
