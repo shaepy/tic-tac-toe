@@ -1,14 +1,14 @@
 /*-------------------------------- Constants --------------------------------*/
 const winConditions = [
-    // across
+// across
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
-    // vertical
+// vertical
     [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
-    // diagonal
+// diagonal
     [2, 4, 6],
     [0, 4, 8]
 ]
@@ -17,7 +17,7 @@ const winConditions = [
 let isXTurn = false
 let winner = false
 let tie = false
-let turn, squareIdx
+let squareIdx
 
 let board = [
     '', '', '',
@@ -36,27 +36,26 @@ const reset = document.querySelector('#reset')
 // This checks if a winner/tie is true or if the square is occupied, before executing the functions
 function handleClick(event) {
     squareIdx = event.target.id
-
     if (winner || tie) return
     if (board[squareIdx] !== '') return
-
     markPiece()
     checkWinner()
     checkTie()
-    resultMessage()
+    result()
 }
 
 // This checks the turn to see if it's X or O and displays the piece
 function markPiece() {
     const displaySquare = document.getElementById(`${squareIdx}`)
     isXTurn = !isXTurn
-
-    if (isXTurn) { // x is 🐙
+    // x is 🐙
+    if (isXTurn) {
         board[squareIdx] = 'X'
         playerX.push(Number(squareIdx)) 
         displaySquare.textContent = '🐙'
         message.textContent = `Your turn, Player 🪼`
-    } else { // o is 🪼
+    // o is 🪼
+    } else { 
         board[squareIdx] = 'O'
         playerO.push(Number(squareIdx))
         displaySquare.textContent = '🪼'
@@ -71,47 +70,34 @@ const checkWins = (arr, targetArr) => targetArr.every(v => arr.includes(v))
 function checkWinner() {
     let playerXWins = []
     let playerOWins = []
-
     winConditions.forEach(winArray => {
         playerXWins.push(checkWins(playerX, winArray))
         playerOWins.push(checkWins(playerO, winArray))
     })
-
     if (playerXWins.includes(true)) winner = 'Player 🐙'
     else if (playerOWins.includes(true)) winner = 'Player 🪼'
 }
 
-// This checks if a tie has occurred
-function checkTie() {
-    if (board.includes('') === false && !winner) tie = true
-}
+const checkTie = () => {if (board.includes('') === false && !winner) tie = true}
 
 // This displays based on if there's a winner or a tie
-function resultMessage() {
+function result() {
     if (winner) message.textContent = `${winner} is the winner!`
     else if (tie) message.textContent = `It's a tie.`
 }
 
-// This will reset the game
 function resetGame() {
-    message.textContent = 'Tap a square to start'
     isXTurn = winner = tie = false
     playerX = []
     playerO = []
-
-    for (let i = 0; i < board.length; i++) {
-        board[i] = ''
-    }
+    for (let i = 0; i < board.length; i++) board[i] = ''
     square.forEach((sqr) => document.getElementById(`${sqr.id}`).textContent = '')
+    message.textContent = 'Tap a square to start'
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
-square.forEach(sqr => {
-    sqr.addEventListener('click', handleClick)
-})
-
+square.forEach(sqr => sqr.addEventListener('click', handleClick))
 reset.addEventListener('click', resetGame)
-
 
 
 
