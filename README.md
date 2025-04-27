@@ -1,7 +1,7 @@
 # Tic-Tac-Toe
 This is a tic-tac-toe game for General Assembly's JavaScript browser game lab to build upon DOM manipulation.
 
-<img width="380" alt="Screenshot 2025-04-26 at 5 33 12 PM" src="https://github.com/user-attachments/assets/547f4b41-9a72-4930-962b-e169318fafbe" />
+<img width="405" alt="Screenshot 2025-04-26 at 6 50 40 PM" src="https://github.com/user-attachments/assets/635a34b8-5d22-4b6e-99ea-8508dad2164e" />
 
 ### Deployment 🔗 https://shaepy.github.io/tic-tac-toe/
 
