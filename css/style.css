@@ -17,15 +17,25 @@ body {
   }
 
   #content {
-    padding: 5%;
+    padding: 40px 38px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  #content h1, h2 {
+    text-align: center;
   }
   
   .board {
-    margin-top: 3%;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     width: 325px;
     gap: 4px;
+    justify-content: center;
   }
   
   .sqr {
@@ -54,6 +64,6 @@ body {
   }
 
   #message {
-    padding: 2% 0px;
+    padding: 12px 0px;
     font-size: 1.3rem;
   }
