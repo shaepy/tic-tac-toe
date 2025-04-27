@@ -13,7 +13,7 @@ This is a tic-tac-toe game for General Assembly's JavaScript browser game lab to
 ## MVP Requirements
 - Display an empty tic-tac-toe board when the page is initially displayed.
 - A player can click on the nine cells to make a move.
-- Every click will alternate between markPieceing an X and O.
+- Every click will alternate between marking an X and O.
 - Display whose turn it is (X or O).
 - The cell cannot be played again once occupied with an X or O.
 - Provide win logic and display a winning message.

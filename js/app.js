@@ -17,6 +17,8 @@ const winConditions = [
 /*---------------------------- Variables (state) ----------------------------*/
 
 let isXTurn = false
+let winner = false
+let tie = false
 let turn, squareIdx
 
 let board = [
@@ -24,12 +26,8 @@ let board = [
     '', '', '',
     '', '', ''
 ]
-
 let playerX = []
 let playerO = []
-
-let winner = false
-let tie = false
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -39,6 +37,7 @@ const reset = document.querySelector('#reset')
 
 /*-------------------------------- Functions --------------------------------*/
 
+// This checks if a winner/tie is true or if the square is occupied, before executing the functions
 function handleClick(event) {
     squareIdx = event.target.id
 
@@ -51,10 +50,11 @@ function handleClick(event) {
     resultMessage()
 }
 
+// This checks the turn to see if it's X or O and displays the piece
 function markPiece() {
     const displaySquare = document.getElementById(`${squareIdx}`)
     isXTurn = !isXTurn
-    // checks if X or O turn
+
     if (isXTurn) {
         board[squareIdx] = 'X'
         playerX.push(Number(squareIdx))
@@ -68,8 +68,10 @@ function markPiece() {
     }
 }
 
+// This checks the arr (array) with a targetArr to see if all targetArr values are included in arr
 const checkWins = (arr, targetArr) => targetArr.every(v => arr.includes(v))
 
+// This checks to see if someone has won and saves the winner to winner
 function checkWinner() {
     let playerXWins = []
     let playerOWins = []
@@ -85,15 +87,18 @@ function checkWinner() {
     else if (playerOWins.includes(true)) winner = 'Player 🐙'
 }
 
+// This checks if a tie has occurred
 function checkTie() {
     if (board.includes('') === false && !winner) tie = true
 }
 
+// This displays based on if there's a winner or a tie
 function resultMessage() {
     if (winner) message.textContent = `${winner} is the winner!`
     else if (tie) message.textContent = `It's a tie.`
 }
 
+// This will reset the game
 function resetGame() {
     message.textContent = 'Tap a square to start'
     isXTurn = false
@@ -120,6 +125,7 @@ square.forEach(sqr => {
 reset.addEventListener('click', resetGame)
 
 
+// Completed User Stories
 // // As a user, I want to click on a square.
 // //     - when i click on a square, it should show me X or O in that square
 // //     - if i am the first person to click a square, it is X
@@ -135,6 +141,7 @@ reset.addEventListener('click', resetGame)
 // //   - reset the game
 
 /*
+MVP Requirements
 // -Display an empty tic-tac-toe board when the page is initially displayed.
 // -A player can click on the nine cells to make a move.
 // -Every click will alternate between markPieceing an X and O.
